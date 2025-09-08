@@ -1,17 +1,27 @@
-        document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll("section");
+// Cursor animado
+const cursor = document.querySelector(".cursor");
 
-            const observer = new IntersectionObserver(
-                entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show");
-                        }
-                    });
-                }, {
-                    threshold: 0.2
+document.addEventListener("mousemove", (e) => {
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
                 }
-            );
+            });
+        }, {
+            threshold: 0.2
+        }
+    );
 
-            sections.forEach(section => observer.observe(section));
-        });
+    sections.forEach(section => observer.observe(section));
+});

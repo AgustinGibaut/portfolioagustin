@@ -25,3 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sections.forEach(section => observer.observe(section));
 });
+
+const form = document.getElementById('contact-form');
+const successMessage = document.getElementById('form-success');
+
+form.addEventListener('submit', function() {
+    successMessage.style.display = 'block';
+});
